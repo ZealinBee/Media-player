@@ -1,13 +1,12 @@
 public class Audio : IMedia
 {
     public string Title { get; set; }
+    public string _id { get; }
     public TimeSpan Duration { get; set; }
-    public string Path { get; set; }
-
-    public Audio(string title, string path, TimeSpan duration)
+    public Audio(string title, string id, TimeSpan duration)
     {
         Title = title;
-        Path = path;
+        _id = id;
         Duration = duration;
     }
 }
