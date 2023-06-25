@@ -1,6 +1,6 @@
 using Core.Entity;
 
-namespace Services.Factory
+namespace Services
 {
     public class MediaPlayerFactory
     {

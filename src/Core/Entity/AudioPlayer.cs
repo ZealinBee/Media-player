@@ -2,19 +2,17 @@ namespace Core.Entity
 {
     public class AudioPlayer : IMediaPlayer
     {
-        List<Audio> audios = new List<Audio>();
-
-        public void DisplayMedias()
+        public void DisplayOptions()
         {
-            int i = 1;
-            foreach (Audio audio in audios)
-            {
-                Console.WriteLine($"{i}. {audio.Title}");
-            }
+            System.Console.WriteLine("Audio Options:");
+            System.Console.WriteLine("1. Play");
+            System.Console.WriteLine("2. Pause");
+            System.Console.WriteLine("3. Stop");
+            System.Console.WriteLine("4. Seek");
         }
-        public void Play()
+        public void Play(IMedia audio)
         {
-            System.Console.WriteLine("Audio Playing...");
+            System.Console.WriteLine($"{audio.Title} is playing");
         }
 
         public void Pause()
@@ -32,10 +30,6 @@ namespace Core.Entity
             System.Console.WriteLine("Audio Seeking...");
         }
 
-        public void Display()
-        {
-            System.Console.WriteLine("List of songs you can play:");
 
-        }
     }
 }

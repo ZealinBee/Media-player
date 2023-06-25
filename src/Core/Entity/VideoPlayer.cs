@@ -2,11 +2,7 @@ namespace Core.Entity
 {
     public class VideoPlayer : IMediaPlayer
     {
-        public void DisplayMedias()
-        {
-
-        }
-        public void Play()
+        public void Play(IMedia video)
         {
             System.Console.WriteLine("Video Playing...");
         }
@@ -24,6 +20,15 @@ namespace Core.Entity
         public void Seek()
         {
             System.Console.WriteLine("Video Seeking...");
+        }
+
+        public void DisplayOptions()
+        {
+            System.Console.WriteLine("Video Options:");
+            System.Console.WriteLine("1. Play");
+            System.Console.WriteLine("2. Pause");
+            System.Console.WriteLine("3. Stop");
+            System.Console.WriteLine("4. Seek");
         }
     }
 }
