@@ -1,5 +1,6 @@
 ﻿using System;
 using Services;
+using Services.Factory;
 
 namespace src
 {
@@ -7,6 +8,11 @@ namespace src
     {
         static void Main(string[] args)
         {
+            // Just adding some dummy media so user can use the app without adding media
+            Audio audio1 = new Audio("Audio 1", "1", new TimeSpan(0, 0, 0, 0, 1000));
+            Audio audio2 = new Audio("Audio 2", "2", new TimeSpan(0, 0, 0, 0, 1000));
+            Video video1 = new Video("Video 1", "1", new TimeSpan(0, 0, 0, 0, 1000));
+            Video video2 = new Video("Video 2", "2", new TimeSpan(0, 0, 0, 0, 1000));
             bool exit = false;
             Console.WriteLine("Welcome to the media player!");
             while (exit == false)
@@ -21,17 +27,17 @@ namespace src
                 switch (choice)
                 {
                     case 1:
-                        Console.WriteLine("Playing audio...");
+                        IMediaPlayer audioPlayer = MediaPlayerFactory.GetMediaPlayer("audio");
                         break;
                     case 2:
-                        Console.WriteLine("Playing video...");
+                        IMediaPlayer videoPlayer = MediaPlayerFactory.GetMediaPlayer("video");
                         break;
                     case 3:
-                        Console.WriteLine("Media manager...");
                         MediaPlayerManager mediaManager = MediaPlayerManager.Instance();
+                        mediaManager.DisplayOptions();
                         break;
                     case 4:
-                        Console.WriteLine("Exiting...");
+                        Console.WriteLine("Thanks for using our application!");
                         exit = true;
                         break;
                     default:

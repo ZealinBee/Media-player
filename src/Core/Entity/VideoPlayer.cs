@@ -2,6 +2,10 @@ namespace Core.Entity
 {
     public class VideoPlayer : IMediaPlayer
     {
+        public void DisplayMedias()
+        {
+
+        }
         public void Play()
         {
             System.Console.WriteLine("Video Playing...");

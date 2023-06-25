@@ -4,4 +4,5 @@ public interface IMediaPlayer
     public void Pause();
     public void Stop();
     public void Seek();
+    public void DisplayMedias();
 }
