@@ -1,12 +1,16 @@
-public class Audio : IMedia
+namespace Core.Entity
 {
-    public string Title { get; set; }
-    public string _id { get; }
-    public TimeSpan Duration { get; set; }
-    public Audio(string title, string id, TimeSpan duration)
+    public class Audio : IMedia
     {
-        Title = title;
-        _id = id;
-        Duration = duration;
+        public string Title { get; set; }
+        public string _id { get; }
+        public TimeSpan Duration { get; set; }
+        public Audio(string title, string id, TimeSpan duration)
+        {
+            Title = title;
+            _id = id;
+            Duration = duration;
+        }
     }
 }
+

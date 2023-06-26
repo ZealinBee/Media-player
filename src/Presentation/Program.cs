@@ -4,7 +4,7 @@ using Core.Entity;
 
 namespace src
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -18,6 +18,11 @@ namespace src
             mediaLibrary.AddAudio(audio2);
             mediaLibrary.AddVideo(video1);
             mediaLibrary.AddVideo(video2);
+
+            MediaPlayerManager mediaManager = MediaPlayerManager.Instance();
+            PlayerObserver playerObserver = new PlayerObserver();
+            mediaLibrary.Attach(playerObserver);
+
             bool exit = false;
             Console.WriteLine("Welcome to the media player!");
             while (exit == false)
@@ -33,21 +38,23 @@ namespace src
                 {
                     case 1:
                         IMediaPlayer audioPlayer = MediaPlayerFactory.GetMediaPlayer("audio");
-                        mediaLibrary.DisplayAudios();
+
+                        mediaLibrary.DisplayAudios(); // Shows a list of playable songs
                         int audioChoice = Convert.ToInt32(Console.ReadLine());
-                        audioPlayer.DisplayOptions();
+                        audioPlayer.DisplayOptions(); // Shows a list of options for the selected song
                         int audioOption = Convert.ToInt32(Console.ReadLine());
                         Audio selectedAudio = mediaLibrary.GetAudio(audioChoice - 1);
                         switch (audioOption)
                         {
                             case 1:
-                                audioPlayer.Play(selectedAudio);
+                                // audioPlayer.Play(selectedAudio);
+                                mediaLibrary.NotifyPlay(selectedAudio);
                                 break;
                             case 2:
-                                audioPlayer.Pause();
+                                mediaLibrary.NotifyPause(selectedAudio);
                                 break;
                             case 3:
-                                audioPlayer.Stop();
+                                mediaLibrary.NotifyStop(selectedAudio);
                                 break;
                             case 4:
                                 audioPlayer.Seek();
@@ -67,13 +74,13 @@ namespace src
                         switch (videoOption)
                         {
                             case 1:
-                                videoPlayer.Play(selectedVideo);
+                                mediaLibrary.NotifyPlay(selectedVideo);
                                 break;
                             case 2:
-                                videoPlayer.Pause();
+                                mediaLibrary.NotifyPause(selectedVideo);
                                 break;
                             case 3:
-                                videoPlayer.Stop();
+                                mediaLibrary.NotifyStop(selectedVideo);
                                 break;
                             case 4:
                                 videoPlayer.Seek();
@@ -84,7 +91,6 @@ namespace src
                         }
                         break;
                     case 3:
-                        MediaPlayerManager mediaManager = MediaPlayerManager.Instance();
                         mediaManager.DisplayOptions();
                         break;
                     case 4:

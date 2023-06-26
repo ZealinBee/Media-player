@@ -1,12 +1,15 @@
-class Video : IMedia
+namespace Core.Entity
 {
-    public string Title { get; set; }
-    public string _id { get; }
-    public TimeSpan Duration { get; set; }
-    public Video(string title, string id, TimeSpan duration)
+    public class Video : IMedia
     {
-        Title = title;
-        _id = id;
-        Duration = duration;
+        public string Title { get; set; }
+        public string _id { get; }
+        public TimeSpan Duration { get; set; }
+        public Video(string title, string id, TimeSpan duration)
+        {
+            Title = title;
+            _id = id;
+            Duration = duration;
+        }
     }
 }
