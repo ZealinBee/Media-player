@@ -11,10 +11,10 @@ namespace src
             try
             {
                 // Just adding some dummy media so user can use the app without adding media
-                Audio audio1 = new Audio("Merry Christmas Audio", "1", new TimeSpan(0, 0, 0, 0, 1000));
-                Audio audio2 = new Audio("Jingle Bells Audio", "2", new TimeSpan(0, 0, 0, 0, 1000));
-                Video video1 = new Video("Youtube Video", "1", new TimeSpan(0, 0, 0, 0, 1000));
-                Video video2 = new Video("Instagram video", "2", new TimeSpan(0, 0, 0, 0, 1000));
+                Audio audio1 = new Audio("Merry Christmas Audio", new TimeSpan(0, 0, 0, 0, 1000));
+                Audio audio2 = new Audio("Jingle Bells Audio", new TimeSpan(0, 0, 0, 0, 1000));
+                Video video1 = new Video("Youtube Video", new TimeSpan(0, 0, 0, 0, 1000));
+                Video video2 = new Video("Instagram video", new TimeSpan(0, 0, 0, 0, 1000));
                 MediaLibrary mediaLibrary = MediaLibrary.Instance();
                 mediaLibrary.AddAudio(audio1);
                 mediaLibrary.AddAudio(audio2);

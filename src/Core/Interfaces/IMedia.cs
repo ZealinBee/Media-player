@@ -2,5 +2,5 @@ public interface IMedia
 {
     string Title { get; set; }
     TimeSpan Duration { get; set; }
-    string _id { get; }
+    int _id { get; }
 }

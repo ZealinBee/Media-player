@@ -1,3 +1,4 @@
+using Core.Entity;
 namespace Services
 {
     class MediaPlayerManager
@@ -62,12 +63,24 @@ namespace Services
 
         public static void AddVideo()
         {
-
+            Console.WriteLine("Enter video name: ");
+            string name = Console.ReadLine();
+            Console.WriteLine("Enter video duration: ");
+            TimeSpan duration = TimeSpan.Parse(Console.ReadLine());
+            Video video = new Video(name, duration);
+            MediaLibrary.Instance().AddVideo(video);
+            Console.WriteLine("Video added");
         }
 
         public static void AddAudio()
         {
-
+            Console.WriteLine("Enter audio name: ");
+            string name = Console.ReadLine();
+            Console.WriteLine("Enter audio duration: ");
+            TimeSpan duration = TimeSpan.Parse(Console.ReadLine());
+            Audio audio = new Audio(name, duration);
+            MediaLibrary.Instance().AddAudio(audio);
+            Console.WriteLine("Audio added");
         }
     }
 }

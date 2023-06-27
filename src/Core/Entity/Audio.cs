@@ -3,12 +3,12 @@ namespace Core.Entity
     public class Audio : IMedia
     {
         public string Title { get; set; }
-        public string _id { get; }
+        public int _id { get; }
         public TimeSpan Duration { get; set; }
-        public Audio(string title, string id, TimeSpan duration)
+        public Audio(string title, TimeSpan duration)
         {
             Title = title;
-            _id = id;
+            _id++;
             Duration = duration;
         }
     }
